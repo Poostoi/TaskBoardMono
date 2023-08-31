@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "bRcQ7EynCGI5HopllSbiG4JiLWMm97KeOUb5+e5T3Se71xiVACvDKRy/Y9mHVTE5soDGvblVKZtyL527UxEVIA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Models\\Models.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Poostoi\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
