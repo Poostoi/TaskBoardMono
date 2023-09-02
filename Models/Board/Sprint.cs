@@ -15,6 +15,10 @@ public class Sprint: BaseEntity
             Files.AddRange(files);
     }
 
+    private Sprint()
+    {
+    }
+
     public Project Project { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }

@@ -20,4 +20,8 @@ public class Task: BaseEntity
     public StatusEnum Status { get; set; }
     public string Comment { get; set; }
     public List<File> Files { get; set; }
+
+    private Task()
+    {
+    }
 }
