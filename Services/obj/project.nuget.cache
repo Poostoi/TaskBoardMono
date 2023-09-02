@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "nY43tU+sucj9Ki4AJCi73SGkjpsPkEnQHfNgLdsK1bjorqe97/WrIWTJXBegDb3YdvtBaWrlOIWCdjb+b1RGuQ==",
+  "dgSpecHash": "HKc9jFBipJ/WhY68BG9kAujjdXjxY/QbK9u24Hyzw86Ty8CjWtGqdpSZBzOjCmlow+vhG0f8flZ8LXf2wNN2Qw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Services\\Services.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Poostoi\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512"
+  ],
   "logs": []
 }
