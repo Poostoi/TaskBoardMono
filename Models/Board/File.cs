@@ -2,7 +2,7 @@
 
 public class File: BaseEntity
 {
-    public File(string name, byte[] dataImage, Sprint? sprint, Task? task)
+    public File(string name, byte[]? dataImage, Sprint? sprint, Task? task)
     {
         Name = name;
         DataImage = dataImage;
@@ -15,7 +15,7 @@ public class File: BaseEntity
     }
 
     public string Name { get; set; }
-    public byte[] DataImage { get; set; }
+    public byte[]? DataImage { get; set; }
     public Sprint? Sprint { get; set; }
     public Task? Task { get; set; }
 }

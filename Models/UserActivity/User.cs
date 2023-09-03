@@ -23,7 +23,6 @@ public class User: BaseEntity
     public string Login { get; set; }
     public string Salt { get; set; }
     public string PasswordHash { get; set; }
-    public Sprint? Sprint { get; set; }
     public Task? Task { get; set; }
     public Role? Role { get; set; }
 
