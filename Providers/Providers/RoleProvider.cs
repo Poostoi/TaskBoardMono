@@ -14,6 +14,7 @@ public class RoleProvider: IRoleProvider
     }
     public async Task CreateAsync(Role role, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(role);
         _applicationContext.Add(role);
         await _applicationContext.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
     }

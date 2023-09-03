@@ -17,7 +17,6 @@ public class UserProvider: IUserProvider
     {
         var user = await _applicationContext.Users
             .Include(u => u.Role)
-            .Include(u => u.Sprint)
             .Include(u => u.Task)
             .FirstOrDefaultAsync(d => d.Login == login, cancellationToken: cancellationToken).ConfigureAwait(false);
         return user;
@@ -26,12 +25,14 @@ public class UserProvider: IUserProvider
 
     public async Task CreateAsync(User user, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(user);
         _applicationContext.Add(user);
         await _applicationContext.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
     }
 
     public async Task UpdateAsync(User user, CancellationToken cancellationToken)
     {
+        ArgumentNullException.ThrowIfNull(user);
         _applicationContext.Update(user);
         await _applicationContext.SaveChangesAsync(cancellationToken);
     }

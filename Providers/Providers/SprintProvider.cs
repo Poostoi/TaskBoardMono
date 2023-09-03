@@ -21,6 +21,14 @@ public class SprintProvider: ISprintProvider
             .FirstOrDefaultAsync(d => d.Id == id, cancellationToken: cancellationToken).ConfigureAwait(false);
         return sprint;
     }
+    public async Task<Sprint?> FindAsync(string name, CancellationToken cancellationToken)
+    {
+        var sprint = await _applicationContext.Sprints
+            .Include(s => s.Project)
+            .Include(s => s.Files)
+            .FirstOrDefaultAsync(d => d.Name == name, cancellationToken: cancellationToken).ConfigureAwait(false);
+        return sprint;
+    }
 
     public async Task<List<Sprint>> GetAllAsync(CancellationToken cancellationToken)
     {

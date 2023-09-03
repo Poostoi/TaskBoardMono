@@ -27,6 +27,14 @@ public class TaskProvider: ITaskProvider
             .Include(t => t.Files)
             .ToListAsync(cancellationToken: cancellationToken);
     }
+    public async Task<Models.Board.Task?> FindAsync(string name, CancellationToken cancellationToken)
+    {
+        var task = await _applicationContext.Tasks
+            .Include(t => t.Sprint)
+            .Include(t => t.Files)
+            .FirstOrDefaultAsync(d => d.Name == name, cancellationToken: cancellationToken).ConfigureAwait(false);
+        return task;
+    }
 
     public async Task CreateAsync(Models.Board.Task task, CancellationToken cancellationToken)
     {

@@ -15,3 +15,5 @@ C:\Users\Poostoi\RiderProjects\TaskBoardMono\Providers\obj\Debug\net7.0\refint\P
 C:\Users\Poostoi\RiderProjects\TaskBoardMono\Providers\obj\Debug\net7.0\Providers.pdb
 C:\Users\Poostoi\RiderProjects\TaskBoardMono\Providers\obj\Debug\net7.0\Providers.genruntimeconfig.cache
 C:\Users\Poostoi\RiderProjects\TaskBoardMono\Providers\obj\Debug\net7.0\ref\Providers.dll
+C:\Users\Poostoi\RiderProjects\TaskBoardMono\Providers\bin\Debug\net7.0\Services.dll
+C:\Users\Poostoi\RiderProjects\TaskBoardMono\Providers\bin\Debug\net7.0\Services.pdb
