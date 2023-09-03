@@ -1,4 +1,4 @@
-﻿namespace Services.Request;
+﻿namespace Services.Request.User;
 
 public class Token
 {

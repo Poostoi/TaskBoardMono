@@ -1,10 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "HKc9jFBipJ/WhY68BG9kAujjdXjxY/QbK9u24Hyzw86Ty8CjWtGqdpSZBzOjCmlow+vhG0f8flZ8LXf2wNN2Qw==",
+  "dgSpecHash": "vg+f33n5TpLBdP+AukF/vJ54J6WV/l5NZkzT33TMkXr39HCQZ/6UiHQdpuJyb7YalOktmkLf5JYiesxoSL0Spg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Services\\Services.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Poostoi\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512"
+    "C:\\Users\\Poostoi\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
+    "C:\\Users\\Poostoi\\.nuget\\packages\\microsoft.aspnetcore.http.features\\6.0.0-preview.4.21253.5\\microsoft.aspnetcore.http.features.6.0.0-preview.4.21253.5.nupkg.sha512",
+    "C:\\Users\\Poostoi\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0-preview.4.21253.7\\microsoft.extensions.primitives.6.0.0-preview.4.21253.7.nupkg.sha512",
+    "C:\\Users\\Poostoi\\.nuget\\packages\\system.io.pipelines\\6.0.0-preview.4.21253.7\\system.io.pipelines.6.0.0-preview.4.21253.7.nupkg.sha512",
+    "C:\\Users\\Poostoi\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0-preview.4.21253.7\\system.runtime.compilerservices.unsafe.6.0.0-preview.4.21253.7.nupkg.sha512"
   ],
   "logs": []
 }

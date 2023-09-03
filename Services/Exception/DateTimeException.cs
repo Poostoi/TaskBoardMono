@@ -1,6 +1,8 @@
 ﻿namespace Services.Exception;
 
-public class DateTimeException
+public class DateTimeException:System.Exception
 {
-    
+    public DateTimeException(string? message) : base(message)
+    {
+    }
 }

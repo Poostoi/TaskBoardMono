@@ -1,4 +1,4 @@
-﻿namespace Cornelius.Product.Services.Exception;
+﻿namespace Services.Exception;
 
 public class ExistIsEntityException:System.Exception
 {

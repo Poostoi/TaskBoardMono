@@ -1,4 +1,4 @@
-﻿namespace Services.Request;
+﻿namespace Services.Request.Board;
 
 public class ProjectRequest
 {

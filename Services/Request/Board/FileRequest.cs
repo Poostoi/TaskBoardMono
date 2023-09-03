@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 
-namespace Services.Request;
+namespace Services.Request.Board;
 
 public class FileRequest
 {

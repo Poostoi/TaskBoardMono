@@ -1,6 +1,6 @@
 ﻿namespace Services.Services;
 
-public interface IAuthOptions
+public class IAuthOptions
 {
-    
+    public string Key { get; private init; }
 }
