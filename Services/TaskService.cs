@@ -22,7 +22,7 @@ public class TaskService: ITaskService
     {
         var task = await _taskProvider.GetAsync(id, cancellationToken);
         if (task == null)
-            throw new NotExistException("Такого спринта не существует");
+            throw new NotExistException("Такой задачи не существует");
         return task;
     }
 
@@ -31,7 +31,7 @@ public class TaskService: ITaskService
         ArgumentNullException.ThrowIfNull(task);
 
         if (await _taskProvider.FindAsync(task.Name, cancellationToken).ConfigureAwait(false) != null)
-            throw new ExistIsEntityException("Такое название спринта существует");
+            throw new ExistIsEntityException("Такое название задачи существует");
 
         var sprintDb = await _sprintProvider.GetAsync(task.SprintId, cancellationToken).ConfigureAwait(false);
         if (sprintDb == null)
@@ -51,19 +51,22 @@ public class TaskService: ITaskService
     }
 
 
-    public async Task<List<Models.Board.Task>> GetAllAsync(CancellationToken cancellationToken)
+    public async Task<List<Models.Board.Task>> GetAllAsync(Guid idSprint, CancellationToken cancellationToken)
     {
-        return await _taskProvider.GetAllAsync(cancellationToken);
+        var sprintDb = await _sprintProvider.GetAsync(idSprint, cancellationToken).ConfigureAwait(false);
+        if (sprintDb == null)
+            throw new NotExistException("Такого спринта не существует");
+        return await _taskProvider.GetAllAsync(idSprint,cancellationToken);
     }
 
     public async Task UpdateAsync(TaskRequest task, CancellationToken cancellationToken)
     {
         var taskDb = await _taskProvider.FindAsync(task.Name, cancellationToken);
         if (taskDb == null)
-            throw new NotExistException("Такого сприната не существует");
+            throw new NotExistException("Такой задачи не существует");
         var sprintDb = await _sprintProvider.GetAsync(task.SprintId, cancellationToken).ConfigureAwait(false);
         if (sprintDb == null)
-            throw new NotExistException("Такого проекта не существует");
+            throw new NotExistException("Такого спринта не существует");
         
         taskDb.Sprint = sprintDb;
         taskDb.Name = task.Name;
@@ -72,6 +75,16 @@ public class TaskService: ITaskService
             task.Status, true);
         taskDb.DateUpdate = DateTime.Now;
         taskDb.Files.AddRange(ConvertImageInArrayByte(task.Files, taskDb));
+        await _taskProvider.UpdateAsync(taskDb, cancellationToken);
+    }
+    public async Task AttachFileAsync(Guid id,  List<FileRequest> files, CancellationToken cancellationToken)
+    {
+        var taskDb = await _taskProvider.GetAsync(id, cancellationToken);
+        if (taskDb == null)
+            throw new NotExistException("Такой задачи не существует");
+        
+        taskDb.DateUpdate = DateTime.Now;
+        taskDb.Files.AddRange(ConvertImageInArrayByte(files, taskDb));
         await _taskProvider.UpdateAsync(taskDb, cancellationToken);
     }
 

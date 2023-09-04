@@ -52,16 +52,18 @@ public class SprintService : ISprintService
     }
 
 
-    public async Task<List<Sprint>> GetAllAsync(CancellationToken cancellationToken)
+    public async Task<List<Sprint>> GetAllAsync(Guid idProject, CancellationToken cancellationToken)
     {
-        return await _sprintProvider.GetAllAsync(cancellationToken);
+        if (await _projectProvider.GetAsync(idProject, cancellationToken).ConfigureAwait(false) == null)
+            throw new NotExistException("Такого проекта не существует");
+        return await _sprintProvider.GetAllAsync(idProject,cancellationToken);
     }
 
     public async Task UpdateAsync(SprintRequest sprint, CancellationToken cancellationToken)
     {
         var sprintDb = await _sprintProvider.FindAsync(sprint.Name, cancellationToken);
         if (sprintDb == null)
-            throw new NotExistException("Такого сприната не существует");
+            throw new NotExistException("Такого спринта не существует");
         var projectDb = await _projectProvider.GetAsync(sprint.ProjectId, cancellationToken).ConfigureAwait(false);
         if (projectDb == null)
             throw new NotExistException("Такого проекта не существует");
@@ -78,6 +80,16 @@ public class SprintService : ISprintService
         sprintDb.DateEnd = sprint.DateEnd;
         sprintDb.DateUpdate = DateTime.Now;
         sprintDb.Files.AddRange(ConvertImageInArrayByte(sprint.Files, sprintDb));
+        await _sprintProvider.UpdateAsync(sprintDb, cancellationToken);
+    }
+    public async Task AttachFileAsync(Guid id,  List<FileRequest> files, CancellationToken cancellationToken)
+    {
+        var sprintDb = await _sprintProvider.GetAsync(id, cancellationToken);
+        if (sprintDb == null)
+            throw new NotExistException("Такого спринта не существует");
+        
+        sprintDb.DateUpdate = DateTime.Now;
+        sprintDb.Files.AddRange(ConvertImageInArrayByte(files, sprintDb));
         await _sprintProvider.UpdateAsync(sprintDb, cancellationToken);
     }
 
