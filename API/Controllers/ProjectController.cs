@@ -1,42 +1,49 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Models.Board;
+using Services.Request.Board;
+using Services.Services;
 using TaskBoard.Authorization.API.Controllers;
 
 namespace API.Controllers;
 
-public class ProductController: ApiBaseController
+public class ProjectController: ApiBaseController
 {
-    private readonly IProductService _productService;
+    private readonly IProjectService _projectService;
 
 
-    public ProductController(IProductService productService)
+    public ProjectController(IProjectService projectService)
     {
-        _productService = productService;
+        _projectService = projectService;
     }
-
-    [HttpPost(Name = "CreateProduct")]
-    public async Task<IActionResult> CreateAsync(ProductRequest product)
+    [Authorize(Roles = "Администратор,Менеджер")]
+    [HttpPost(Name = "CreateProject")]
+    public async Task<IActionResult> CreateAsync(ProjectRequest project)
     {
-        ArgumentNullException.ThrowIfNull(product);
-        await _productService.CreateAsync(product, new CancellationToken());
+        ArgumentNullException.ThrowIfNull(project);
+        await _projectService.CreateAsync(project, new CancellationToken());
         return Ok();
     }
-    [HttpPut(Name = "UpdateProduct")]
-    public async Task<IActionResult> UpdateAsync(ProductRequest product)
+    [Authorize(Roles = "Администратор, Менеджер")]
+    [HttpPut(Name = "UpdateProject")]
+    public async Task<IActionResult> UpdateAsync(ProjectRequest project)
     {
-        ArgumentNullException.ThrowIfNull(product);
-        await _productService.UpdateAsync(product, new CancellationToken());
+        ArgumentNullException.ThrowIfNull(project);
+        await _projectService.UpdateAsync(project, new CancellationToken());
         return Ok();
     }
-    [HttpGet(Name = "GetAllProduct")]
-    public async Task<List<Models.Product>> GetAll()
+    [Authorize]
+    [HttpGet(Name = "GetAllProject")]
+    public async Task<List<Project>> GetAll()
     {
-        var listProduct = await _productService.GetAllAsync(new CancellationToken());
-        return listProduct;
+        var listProject = await _projectService.GetAllAsync(new CancellationToken());
+        return listProject;
     }
+    [Authorize]
     [HttpGet("{id}")]
-    public async Task<Models.Product> GetById(Guid id)
+    public async Task<Project> GetById(Guid id)
     {
-        var product = await _productService.GetByIdAsync(id, new CancellationToken());
-        return product;
+        var project = await _projectService.GetAsync(id, new CancellationToken());
+        return project;
     }
 }

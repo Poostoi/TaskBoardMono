@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Models.Board;
 using Services.Request.Board;
 using Services.Services;
@@ -6,40 +7,55 @@ using TaskBoard.Authorization.API.Controllers;
 
 namespace API.Controllers;
 
-public class ProjectController: ApiBaseController
+public class SprintController : ApiBaseController
 {
-    private readonly IProjectService _projectService;
+    private readonly ISprintService _sprintService;
+    private readonly IUserService _userService;
 
 
-    public ProjectController(IProjectService projectService)
+    public SprintController(ISprintService sprintService, IUserService userService)
     {
-        _projectService = projectService;
+        _sprintService = sprintService;
+        _userService = userService;
     }
 
-    [HttpPost(Name = "CreateProject")]
-    public async Task<IActionResult> CreateAsync(ProjectRequest project)
+    [Authorize(Roles = "Администратор, Менеджер")]
+    [HttpPost(Name = "CreateSprint")]
+    public async Task<IActionResult> CreateAsync(SprintRequest sprint)
     {
-        ArgumentNullException.ThrowIfNull(project);
-        await _projectService.CreateAsync(project, new CancellationToken());
+        ArgumentNullException.ThrowIfNull(sprint);
+        await _sprintService.CreateAsync(sprint, new CancellationToken());
         return Ok();
     }
-    [HttpPut(Name = "UpdateProduct")]
-    public async Task<IActionResult> UpdateAsync(ProjectRequest project)
+
+    [Authorize(Roles = "Администратор, Менеджер")]
+    [HttpPut(Name = "UpdateSprint")]
+    public async Task<IActionResult> UpdateAsync(SprintRequest sprint)
     {
-        ArgumentNullException.ThrowIfNull(project);
-        await _projectService.UpdateAsync(project, new CancellationToken());
+        ArgumentNullException.ThrowIfNull(sprint);
+        await _sprintService.UpdateAsync(sprint, new CancellationToken());
         return Ok();
     }
+
+    [Authorize]
     [HttpGet(Name = "GetAllProduct")]
-    public async Task<List<Project>> GetAll()
+    public async Task<List<Sprint>> GetAll(string login, Guid idProject)
     {
-        var listProduct = await _projectService.GetAllAsync(new CancellationToken());
-        return listProduct;
+        var user = await _userService.FindAsync(login, new CancellationToken());
+        if (user.Role.Name == "Пользователь" && user.Project.Id != idProject)
+            throw new ArgumentException("Пользователь не добавлен в проект.");
+        var listProject = await _sprintService.GetAllAsync(idProject, new CancellationToken());
+        return listProject;
     }
+
+    [Authorize]
     [HttpGet("{id}")]
-    public async Task<Project> GetById(Guid id)
+    public async Task<Sprint> GetById(Guid id, string login, Guid idProject)
     {
-        var project = await _projectService.GetAsync(id, new CancellationToken());
-        return project;
+        var user = await _userService.FindAsync(login, new CancellationToken());
+        if (user.Role.Name == "Пользователь" && user.Project.Id != idProject)
+            throw new ArgumentException("Пользователь не добавлен в проект.");
+        var sprint = await _sprintService.GetAsync(id, new CancellationToken());
+        return sprint;
     }
 }
