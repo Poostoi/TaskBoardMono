@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\DependencyInjection\\DependencyInjection.csproj": {}
+    "C:\\Users\\Poostoi\\RiderProjects\\TaskBoard\\Cornelius.Authorization.DependencyInjection\\Cornelius.Authorization.DependencyInjection.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\DependencyInjection\\DependencyInjection.csproj": {
+    "C:\\Users\\Poostoi\\RiderProjects\\TaskBoard\\Cornelius.Authorization.DependencyInjection\\Cornelius.Authorization.DependencyInjection.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\DependencyInjection\\DependencyInjection.csproj",
-        "projectName": "DependencyInjection",
-        "projectPath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\DependencyInjection\\DependencyInjection.csproj",
+        "projectUniqueName": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoard\\Cornelius.Authorization.DependencyInjection\\Cornelius.Authorization.DependencyInjection.csproj",
+        "projectName": "Cornelius.Authorization.DependencyInjection",
+        "projectPath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoard\\Cornelius.Authorization.DependencyInjection\\Cornelius.Authorization.DependencyInjection.csproj",
         "packagesPath": "C:\\Users\\Poostoi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\DependencyInjection\\obj\\",
+        "outputPath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoard\\Cornelius.Authorization.DependencyInjection\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Poostoi\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -26,20 +26,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Cornelius.Authorization.Services\\Cornelius.Authorization.Services.csproj": {
-                "projectPath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Cornelius.Authorization.Services\\Cornelius.Authorization.Services.csproj"
+              "C:\\Users\\Poostoi\\RiderProjects\\TaskBoard\\Cornelius.Authorization.Providers\\Cornelius.Authorization.Providers.csproj": {
+                "projectPath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoard\\Cornelius.Authorization.Providers\\Cornelius.Authorization.Providers.csproj"
               },
-              "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Providers\\Providers.csproj": {
-                "projectPath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Providers\\Providers.csproj"
-              },
-              "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Services\\Services.csproj": {
-                "projectPath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Services\\Services.csproj"
-              },
-              "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\TaskBoard.Authorization.Providers\\TaskBoard.Authorization.Providers.csproj": {
-                "projectPath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\TaskBoard.Authorization.Providers\\TaskBoard.Authorization.Providers.csproj"
-              },
-              "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\TaskBoard.Authorization.Services\\TaskBoard.Authorization.Services.csproj": {
-                "projectPath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\TaskBoard.Authorization.Services\\TaskBoard.Authorization.Services.csproj"
+              "C:\\Users\\Poostoi\\RiderProjects\\TaskBoard\\Cornelius.Authorization.Services\\Cornelius.Authorization.Services.csproj": {
+                "projectPath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoard\\Cornelius.Authorization.Services\\Cornelius.Authorization.Services.csproj"
               }
             }
           }
@@ -83,14 +74,14 @@
         }
       }
     },
-    "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Models\\Models.csproj": {
+    "C:\\Users\\Poostoi\\RiderProjects\\TaskBoard\\Cornelius.Authorization.Models\\Cornelius.Authorization.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Models\\Models.csproj",
-        "projectName": "Models",
-        "projectPath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Models\\Models.csproj",
+        "projectUniqueName": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoard\\Cornelius.Authorization.Models\\Cornelius.Authorization.Models.csproj",
+        "projectName": "Cornelius.Authorization.Models",
+        "projectPath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoard\\Cornelius.Authorization.Models\\Cornelius.Authorization.Models.csproj",
         "packagesPath": "C:\\Users\\Poostoi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Models\\obj\\",
+        "outputPath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoard\\Cornelius.Authorization.Models\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Poostoi\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -142,14 +133,14 @@
         }
       }
     },
-    "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Providers\\Providers.csproj": {
+    "C:\\Users\\Poostoi\\RiderProjects\\TaskBoard\\Cornelius.Authorization.Providers\\Cornelius.Authorization.Providers.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Providers\\Providers.csproj",
-        "projectName": "Providers",
-        "projectPath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Providers\\Providers.csproj",
+        "projectUniqueName": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoard\\Cornelius.Authorization.Providers\\Cornelius.Authorization.Providers.csproj",
+        "projectName": "Cornelius.Authorization.Providers",
+        "projectPath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoard\\Cornelius.Authorization.Providers\\Cornelius.Authorization.Providers.csproj",
         "packagesPath": "C:\\Users\\Poostoi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Providers\\obj\\",
+        "outputPath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoard\\Cornelius.Authorization.Providers\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Poostoi\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -164,11 +155,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Models\\Models.csproj": {
-                "projectPath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Models\\Models.csproj"
+              "C:\\Users\\Poostoi\\RiderProjects\\TaskBoard\\Cornelius.Authorization.Models\\Cornelius.Authorization.Models.csproj": {
+                "projectPath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoard\\Cornelius.Authorization.Models\\Cornelius.Authorization.Models.csproj"
               },
-              "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Services\\Services.csproj": {
-                "projectPath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Services\\Services.csproj"
+              "C:\\Users\\Poostoi\\RiderProjects\\TaskBoard\\Cornelius.Authorization.Services\\Cornelius.Authorization.Services.csproj": {
+                "projectPath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoard\\Cornelius.Authorization.Services\\Cornelius.Authorization.Services.csproj"
               }
             }
           }
@@ -189,17 +180,17 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[8.0.0-preview.1.23111.4, )"
+              "version": "[7.0.10, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.0-preview.1.23111.4, )"
+              "version": "[7.0.10, )"
             },
             "Npgsql.EntityFrameworkCore.PostgreSQL": {
               "target": "Package",
-              "version": "[8.0.0-preview.1, )"
+              "version": "[7.0.4, )"
             }
           },
           "imports": [
@@ -222,14 +213,14 @@
         }
       }
     },
-    "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Services\\Services.csproj": {
+    "C:\\Users\\Poostoi\\RiderProjects\\TaskBoard\\Cornelius.Authorization.Services\\Cornelius.Authorization.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Services\\Services.csproj",
-        "projectName": "Services",
-        "projectPath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Services\\Services.csproj",
+        "projectUniqueName": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoard\\Cornelius.Authorization.Services\\Cornelius.Authorization.Services.csproj",
+        "projectName": "Cornelius.Authorization.Services",
+        "projectPath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoard\\Cornelius.Authorization.Services\\Cornelius.Authorization.Services.csproj",
         "packagesPath": "C:\\Users\\Poostoi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Services\\obj\\",
+        "outputPath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoard\\Cornelius.Authorization.Services\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Poostoi\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -244,8 +235,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Models\\Models.csproj": {
-                "projectPath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Models\\Models.csproj"
+              "C:\\Users\\Poostoi\\RiderProjects\\TaskBoard\\Cornelius.Authorization.Models\\Cornelius.Authorization.Models.csproj": {
+                "projectPath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoard\\Cornelius.Authorization.Models\\Cornelius.Authorization.Models.csproj"
               }
             }
           }
@@ -259,12 +250,6 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "dependencies": {
-            "Microsoft.AspNetCore.Http.Features": {
-              "target": "Package",
-              "version": "[6.0.0-preview.4.21253.5, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
