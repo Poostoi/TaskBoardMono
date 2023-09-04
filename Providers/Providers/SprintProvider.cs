@@ -30,11 +30,12 @@ public class SprintProvider: ISprintProvider
         return sprint;
     }
 
-    public async Task<List<Sprint>> GetAllAsync(CancellationToken cancellationToken)
+    public async Task<List<Sprint>> GetAllAsync(Guid idProject, CancellationToken cancellationToken)
     {
         return await _applicationContext.Sprints
             .Include(s => s.Project)
             .Include(s => s.Files)
+            .Where(s => s.Project.Id == idProject)
             .ToListAsync(cancellationToken: cancellationToken);
     }
 

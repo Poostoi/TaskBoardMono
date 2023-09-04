@@ -16,13 +16,13 @@ public class ProjectProvider: IProjectProvider
     public async Task<Project?> GetAsync(Guid id, CancellationToken cancellationToken)
     {
         var project = await _applicationContext.Projects
-            .FirstOrDefaultAsync(d => d.Id == id, cancellationToken: cancellationToken).ConfigureAwait(false);
+            .FirstOrDefaultAsync(p => p.Id == id, cancellationToken: cancellationToken).ConfigureAwait(false);
         return project;
     }
     public async Task<Project?> FindAsync(string name, CancellationToken cancellationToken)
     {
         var project = await _applicationContext.Projects
-            .FirstOrDefaultAsync(d => d.Name == name, cancellationToken: cancellationToken).ConfigureAwait(false);
+            .FirstOrDefaultAsync(p => p.Name == name, cancellationToken: cancellationToken).ConfigureAwait(false);
         return project;
     }
 

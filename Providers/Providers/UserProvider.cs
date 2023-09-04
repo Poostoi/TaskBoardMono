@@ -17,6 +17,7 @@ public class UserProvider: IUserProvider
     {
         var user = await _applicationContext.Users
             .Include(u => u.Role)
+            .Include(u => u.Project)
             .Include(u => u.Task)
             .FirstOrDefaultAsync(d => d.Login == login, cancellationToken: cancellationToken).ConfigureAwait(false);
         return user;

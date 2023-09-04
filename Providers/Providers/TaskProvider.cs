@@ -20,11 +20,12 @@ public class TaskProvider: ITaskProvider
         return task;
     }
 
-    public async Task<List<Models.Board.Task>> GetAllAsync(CancellationToken cancellationToken)
+    public async Task<List<Models.Board.Task>> GetAllAsync(Guid idSprint,CancellationToken cancellationToken)
     {
         return await _applicationContext.Tasks
             .Include(t => t.Sprint)
             .Include(t => t.Files)
+            .Where(t => t.Sprint.Id ==idSprint)
             .ToListAsync(cancellationToken: cancellationToken);
     }
     public async Task<Models.Board.Task?> FindAsync(string name, CancellationToken cancellationToken)
