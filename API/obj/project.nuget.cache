@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "ioH4JpCG9Nppi184KBJLS47puwX29AdLbB97JAz/2uK5luoFfLJpkV7ruVmXusO9tAuqgcrBkQjeayOO4BAAtw==",
-  "success": false,
+  "dgSpecHash": "9tG7JR+0c1VO1Z6XI735pzdUUJrqWAQtr9DmTqLwk7yI+c7dxShhs655xMN7gO7weHKW+yvw/oCniRp9E7RiCA==",
+  "success": true,
   "projectFilePath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Poostoi\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
@@ -18,7 +18,7 @@
     "C:\\Users\\Poostoi\\.nuget\\packages\\microsoft.extensions.caching.memory\\8.0.0-preview.1.23110.8\\microsoft.extensions.caching.memory.8.0.0-preview.1.23110.8.nupkg.sha512",
     "C:\\Users\\Poostoi\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0-preview.1.23110.8\\microsoft.extensions.configuration.abstractions.8.0.0-preview.1.23110.8.nupkg.sha512",
     "C:\\Users\\Poostoi\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\8.0.0-preview.1.23110.8\\microsoft.extensions.dependencyinjection.8.0.0-preview.1.23110.8.nupkg.sha512",
-    "C:\\Users\\Poostoi\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\Poostoi\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0-preview.1.23110.8\\microsoft.extensions.dependencyinjection.abstractions.8.0.0-preview.1.23110.8.nupkg.sha512",
     "C:\\Users\\Poostoi\\.nuget\\packages\\microsoft.extensions.logging\\8.0.0-preview.1.23110.8\\microsoft.extensions.logging.8.0.0-preview.1.23110.8.nupkg.sha512",
     "C:\\Users\\Poostoi\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0-preview.1.23110.8\\microsoft.extensions.logging.abstractions.8.0.0-preview.1.23110.8.nupkg.sha512",
     "C:\\Users\\Poostoi\\.nuget\\packages\\microsoft.extensions.options\\8.0.0-preview.1.23110.8\\microsoft.extensions.options.8.0.0-preview.1.23110.8.nupkg.sha512",
@@ -39,60 +39,5 @@
     "C:\\Users\\Poostoi\\.nuget\\packages\\system.io.pipelines\\6.0.0-preview.4.21253.7\\system.io.pipelines.6.0.0-preview.4.21253.7.nupkg.sha512",
     "C:\\Users\\Poostoi\\.nuget\\packages\\system.security.cryptography.cng\\4.5.0\\system.security.cryptography.cng.4.5.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1104",
-      "level": "Error",
-      "message": "Unable to find project 'C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\TaskBoard.Authorization.Providers\\TaskBoard.Authorization.Providers.csproj'. Check that the project reference is valid and that the project file exists.",
-      "libraryId": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\TaskBoard.Authorization.Providers\\TaskBoard.Authorization.Providers.csproj",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    },
-    {
-      "code": "NU1104",
-      "level": "Error",
-      "message": "Unable to find project 'C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\TaskBoard.Authorization.Services\\TaskBoard.Authorization.Services.csproj'. Check that the project reference is valid and that the project file exists.",
-      "libraryId": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\TaskBoard.Authorization.Services\\TaskBoard.Authorization.Services.csproj",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    },
-    {
-      "code": "NU1104",
-      "level": "Error",
-      "message": "Unable to find project 'C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Cornelius.Authorization.Services\\Cornelius.Authorization.Services.csproj'. Check that the project reference is valid and that the project file exists.",
-      "libraryId": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Cornelius.Authorization.Services\\Cornelius.Authorization.Services.csproj",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    },
-    {
-      "code": "NU1605",
-      "level": "Error",
-      "message": "Warning As Error: Detected package downgrade: Microsoft.Extensions.DependencyInjection.Abstractions from 8.0.0-preview.1.23110.8 to 7.0.0. Reference the package directly from the project to select a different version. \r\n API -> DependencyInjection -> Providers -> Microsoft.EntityFrameworkCore 8.0.0-preview.1.23111.4 -> Microsoft.Extensions.Caching.Memory 8.0.0-preview.1.23110.8 -> Microsoft.Extensions.DependencyInjection.Abstractions (>= 8.0.0-preview.1.23110.8) \r\n API -> DependencyInjection -> Microsoft.Extensions.DependencyInjection.Abstractions (>= 7.0.0)",
-      "libraryId": "Microsoft.Extensions.DependencyInjection.Abstractions",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    },
-    {
-      "code": "NU1605",
-      "level": "Error",
-      "message": "Warning As Error: Detected package downgrade: Microsoft.Extensions.DependencyInjection.Abstractions from 8.0.0-preview.1.23110.8 to 7.0.0. Reference the package directly from the project to select a different version. \r\n API -> DependencyInjection -> Providers -> Microsoft.EntityFrameworkCore 8.0.0-preview.1.23111.4 -> Microsoft.Extensions.DependencyInjection 8.0.0-preview.1.23110.8 -> Microsoft.Extensions.DependencyInjection.Abstractions (>= 8.0.0-preview.1.23110.8) \r\n API -> DependencyInjection -> Microsoft.Extensions.DependencyInjection.Abstractions (>= 7.0.0)",
-      "libraryId": "Microsoft.Extensions.DependencyInjection.Abstractions",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    },
-    {
-      "code": "NU1605",
-      "level": "Error",
-      "message": "Warning As Error: Detected package downgrade: Microsoft.Extensions.DependencyInjection.Abstractions from 8.0.0-preview.1.23110.8 to 7.0.0. Reference the package directly from the project to select a different version. \r\n API -> DependencyInjection -> Providers -> Microsoft.EntityFrameworkCore 8.0.0-preview.1.23111.4 -> Microsoft.Extensions.Logging 8.0.0-preview.1.23110.8 -> Microsoft.Extensions.DependencyInjection.Abstractions (>= 8.0.0-preview.1.23110.8) \r\n API -> DependencyInjection -> Microsoft.Extensions.DependencyInjection.Abstractions (>= 7.0.0)",
-      "libraryId": "Microsoft.Extensions.DependencyInjection.Abstractions",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    }
-  ]
+  "logs": []
 }

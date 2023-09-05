@@ -38,7 +38,7 @@ public class SprintController : ApiBaseController
     }
 
     [Authorize]
-    [HttpGet(Name = "GetAllProduct")]
+    [HttpGet("GetAllProduct")]
     public async Task<List<Sprint>> GetAll(string login, Guid idProject)
     {
         var user = await _userService.FindAsync(login, new CancellationToken());

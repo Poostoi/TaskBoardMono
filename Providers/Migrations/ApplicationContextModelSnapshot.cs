@@ -199,6 +199,13 @@ namespace Providers.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<Guid?>("ProjectId")
+                        .HasColumnType("uuid");
+
                     b.Property<Guid?>("RoleId")
                         .HasColumnType("uuid");
 
@@ -210,6 +217,8 @@ namespace Providers.Migrations
                         .HasColumnType("uuid");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ProjectId");
 
                     b.HasIndex("RoleId");
 
@@ -257,6 +266,10 @@ namespace Providers.Migrations
 
             modelBuilder.Entity("Models.UserActivity.User", b =>
                 {
+                    b.HasOne("Models.Board.Project", "Project")
+                        .WithMany()
+                        .HasForeignKey("ProjectId");
+
                     b.HasOne("Models.UserActivity.Role", "Role")
                         .WithMany()
                         .HasForeignKey("RoleId");
@@ -264,6 +277,8 @@ namespace Providers.Migrations
                     b.HasOne("Models.Board.Task", "Task")
                         .WithMany()
                         .HasForeignKey("TaskId");
+
+                    b.Navigation("Project");
 
                     b.Navigation("Role");
 

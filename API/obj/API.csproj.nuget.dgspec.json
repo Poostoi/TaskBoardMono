@@ -96,20 +96,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Cornelius.Authorization.Services\\Cornelius.Authorization.Services.csproj": {
-                "projectPath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Cornelius.Authorization.Services\\Cornelius.Authorization.Services.csproj"
-              },
               "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Providers\\Providers.csproj": {
                 "projectPath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Providers\\Providers.csproj"
               },
               "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Services\\Services.csproj": {
                 "projectPath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Services\\Services.csproj"
-              },
-              "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\TaskBoard.Authorization.Providers\\TaskBoard.Authorization.Providers.csproj": {
-                "projectPath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\TaskBoard.Authorization.Providers\\TaskBoard.Authorization.Providers.csproj"
-              },
-              "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\TaskBoard.Authorization.Services\\TaskBoard.Authorization.Services.csproj": {
-                "projectPath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\TaskBoard.Authorization.Services\\TaskBoard.Authorization.Services.csproj"
               }
             }
           }
@@ -124,10 +115,6 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
-            "Microsoft.Extensions.DependencyInjection.Abstractions": {
-              "target": "Package",
-              "version": "[7.0.0, )"
-            },
             "Swashbuckle.AspNetCore.SwaggerGen": {
               "target": "Package",
               "version": "[6.5.0, )"

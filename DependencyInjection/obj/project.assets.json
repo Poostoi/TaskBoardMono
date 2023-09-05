@@ -202,7 +202,7 @@
           "buildTransitive/net6.0/_._": {}
         }
       },
-      "Microsoft.Extensions.DependencyInjection.Abstractions/7.0.0": {
+      "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.0-preview.1.23110.8": {
         "type": "package",
         "compile": {
           "lib/net7.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
@@ -859,10 +859,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.DependencyInjection.Abstractions/7.0.0": {
-      "sha512": "h3j/QfmFN4S0w4C2A6X7arXij/M/OVw3uQHSOFxnND4DyAzO1F9eMX7Eti7lU/OkSthEE0WzRsfT/Dmx86jzCw==",
+    "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.0-preview.1.23110.8": {
+      "sha512": "ZGI9B2g/FiWwgkaHcvQ3kz4Db0FhZmDV4BQW7ToorZ0hn3DK0euvN2Law61h51M81Iz2AnkYJ6ghhazPzrRgEg==",
       "type": "package",
-      "path": "microsoft.extensions.dependencyinjection.abstractions/7.0.0",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/8.0.0-preview.1.23110.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -879,11 +879,13 @@
         "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
         "lib/net7.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
         "lib/net7.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
         "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
         "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
         "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
         "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
-        "microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
+        "microsoft.extensions.dependencyinjection.abstractions.8.0.0-preview.1.23110.8.nupkg.sha512",
         "microsoft.extensions.dependencyinjection.abstractions.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -1381,10 +1383,6 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
-      "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Cornelius.Authorization.Services\\Cornelius.Authorization.Services.csproj",
-      "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\TaskBoard.Authorization.Providers\\TaskBoard.Authorization.Providers.csproj",
-      "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\TaskBoard.Authorization.Services\\TaskBoard.Authorization.Services.csproj",
-      "Microsoft.Extensions.DependencyInjection.Abstractions >= 7.0.0",
       "Providers >= 1.0.0",
       "Services >= 1.0.0",
       "Swashbuckle.AspNetCore.SwaggerGen >= 6.5.0"
@@ -1415,20 +1413,11 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Cornelius.Authorization.Services\\Cornelius.Authorization.Services.csproj": {
-              "projectPath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Cornelius.Authorization.Services\\Cornelius.Authorization.Services.csproj"
-            },
             "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Providers\\Providers.csproj": {
               "projectPath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Providers\\Providers.csproj"
             },
             "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Services\\Services.csproj": {
               "projectPath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Services\\Services.csproj"
-            },
-            "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\TaskBoard.Authorization.Providers\\TaskBoard.Authorization.Providers.csproj": {
-              "projectPath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\TaskBoard.Authorization.Providers\\TaskBoard.Authorization.Providers.csproj"
-            },
-            "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\TaskBoard.Authorization.Services\\TaskBoard.Authorization.Services.csproj": {
-              "projectPath": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\TaskBoard.Authorization.Services\\TaskBoard.Authorization.Services.csproj"
             }
           }
         }
@@ -1443,10 +1432,6 @@
       "net7.0": {
         "targetAlias": "net7.0",
         "dependencies": {
-          "Microsoft.Extensions.DependencyInjection.Abstractions": {
-            "target": "Package",
-            "version": "[7.0.0, )"
-          },
           "Swashbuckle.AspNetCore.SwaggerGen": {
             "target": "Package",
             "version": "[6.5.0, )"
@@ -1471,61 +1456,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1104",
-      "level": "Error",
-      "message": "Unable to find project 'C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\TaskBoard.Authorization.Providers\\TaskBoard.Authorization.Providers.csproj'. Check that the project reference is valid and that the project file exists.",
-      "libraryId": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\TaskBoard.Authorization.Providers\\TaskBoard.Authorization.Providers.csproj",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    },
-    {
-      "code": "NU1104",
-      "level": "Error",
-      "message": "Unable to find project 'C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\TaskBoard.Authorization.Services\\TaskBoard.Authorization.Services.csproj'. Check that the project reference is valid and that the project file exists.",
-      "libraryId": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\TaskBoard.Authorization.Services\\TaskBoard.Authorization.Services.csproj",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    },
-    {
-      "code": "NU1104",
-      "level": "Error",
-      "message": "Unable to find project 'C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Cornelius.Authorization.Services\\Cornelius.Authorization.Services.csproj'. Check that the project reference is valid and that the project file exists.",
-      "libraryId": "C:\\Users\\Poostoi\\RiderProjects\\TaskBoardMono\\Cornelius.Authorization.Services\\Cornelius.Authorization.Services.csproj",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    },
-    {
-      "code": "NU1605",
-      "level": "Error",
-      "message": "Warning As Error: Detected package downgrade: Microsoft.Extensions.DependencyInjection.Abstractions from 8.0.0-preview.1.23110.8 to 7.0.0. Reference the package directly from the project to select a different version. \r\n DependencyInjection -> Providers -> Microsoft.EntityFrameworkCore 8.0.0-preview.1.23111.4 -> Microsoft.Extensions.Caching.Memory 8.0.0-preview.1.23110.8 -> Microsoft.Extensions.DependencyInjection.Abstractions (>= 8.0.0-preview.1.23110.8) \r\n DependencyInjection -> Microsoft.Extensions.DependencyInjection.Abstractions (>= 7.0.0)",
-      "libraryId": "Microsoft.Extensions.DependencyInjection.Abstractions",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    },
-    {
-      "code": "NU1605",
-      "level": "Error",
-      "message": "Warning As Error: Detected package downgrade: Microsoft.Extensions.DependencyInjection.Abstractions from 8.0.0-preview.1.23110.8 to 7.0.0. Reference the package directly from the project to select a different version. \r\n DependencyInjection -> Providers -> Microsoft.EntityFrameworkCore 8.0.0-preview.1.23111.4 -> Microsoft.Extensions.DependencyInjection 8.0.0-preview.1.23110.8 -> Microsoft.Extensions.DependencyInjection.Abstractions (>= 8.0.0-preview.1.23110.8) \r\n DependencyInjection -> Microsoft.Extensions.DependencyInjection.Abstractions (>= 7.0.0)",
-      "libraryId": "Microsoft.Extensions.DependencyInjection.Abstractions",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    },
-    {
-      "code": "NU1605",
-      "level": "Error",
-      "message": "Warning As Error: Detected package downgrade: Microsoft.Extensions.DependencyInjection.Abstractions from 8.0.0-preview.1.23110.8 to 7.0.0. Reference the package directly from the project to select a different version. \r\n DependencyInjection -> Providers -> Microsoft.EntityFrameworkCore 8.0.0-preview.1.23111.4 -> Microsoft.Extensions.Logging 8.0.0-preview.1.23110.8 -> Microsoft.Extensions.DependencyInjection.Abstractions (>= 8.0.0-preview.1.23110.8) \r\n DependencyInjection -> Microsoft.Extensions.DependencyInjection.Abstractions (>= 7.0.0)",
-      "libraryId": "Microsoft.Extensions.DependencyInjection.Abstractions",
-      "targetGraphs": [
-        "net7.0"
-      ]
-    }
-  ]
+  }
 }
