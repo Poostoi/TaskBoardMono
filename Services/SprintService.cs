@@ -59,9 +59,9 @@ public class SprintService : ISprintService
         return await _sprintProvider.GetAllAsync(idProject,cancellationToken);
     }
 
-    public async Task UpdateAsync(SprintRequest sprint, CancellationToken cancellationToken)
+    public async Task UpdateAsync(SprintUpdateRequest sprint, CancellationToken cancellationToken)
     {
-        var sprintDb = await _sprintProvider.FindAsync(sprint.Name, cancellationToken);
+        var sprintDb = await _sprintProvider.GetAsync(sprint.Id, cancellationToken);
         if (sprintDb == null)
             throw new NotExistException("Такого спринта не существует");
         var projectDb = await _projectProvider.GetAsync(sprint.ProjectId, cancellationToken).ConfigureAwait(false);
@@ -82,7 +82,7 @@ public class SprintService : ISprintService
         sprintDb.Files.AddRange(ConvertImageInArrayByte(sprint.Files, sprintDb));
         await _sprintProvider.UpdateAsync(sprintDb, cancellationToken);
     }
-    public async Task AttachFileAsync(Guid id,  List<FileRequest> files, CancellationToken cancellationToken)
+    public async Task AttachFilesAsync(Guid id,  List<FileRequest> files, CancellationToken cancellationToken)
     {
         var sprintDb = await _sprintProvider.GetAsync(id, cancellationToken);
         if (sprintDb == null)

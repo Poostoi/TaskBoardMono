@@ -59,9 +59,9 @@ public class TaskService: ITaskService
         return await _taskProvider.GetAllAsync(idSprint,cancellationToken);
     }
 
-    public async Task UpdateAsync(TaskRequest task, CancellationToken cancellationToken)
+    public async Task UpdateAsync(TaskUpdateRequest task, CancellationToken cancellationToken)
     {
-        var taskDb = await _taskProvider.FindAsync(task.Name, cancellationToken);
+        var taskDb = await _taskProvider.GetAsync(task.Id, cancellationToken);
         if (taskDb == null)
             throw new NotExistException("Такой задачи не существует");
         var sprintDb = await _sprintProvider.GetAsync(task.SprintId, cancellationToken).ConfigureAwait(false);
@@ -77,7 +77,7 @@ public class TaskService: ITaskService
         taskDb.Files.AddRange(ConvertImageInArrayByte(task.Files, taskDb));
         await _taskProvider.UpdateAsync(taskDb, cancellationToken);
     }
-    public async Task AttachFileAsync(Guid id,  List<FileRequest> files, CancellationToken cancellationToken)
+    public async Task AttachFilesAsync(Guid id,  List<FileRequest> files, CancellationToken cancellationToken)
     {
         var taskDb = await _taskProvider.GetAsync(id, cancellationToken);
         if (taskDb == null)

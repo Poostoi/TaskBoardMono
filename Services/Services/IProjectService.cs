@@ -9,5 +9,5 @@ public interface IProjectService
     Task<Project?> GetAsync(Guid id, CancellationToken cancellationToken);
     Task<List<Project>> GetAllAsync(CancellationToken cancellationToken);
     Task CreateAsync(ProjectRequest project, CancellationToken cancellationToken);
-    Task UpdateAsync(ProjectRequest project, CancellationToken cancellationToken);
+    Task UpdateAsync(ProjectUpdateRequest project, CancellationToken cancellationToken);
 }

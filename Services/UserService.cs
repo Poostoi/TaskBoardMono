@@ -42,7 +42,7 @@ public class UserService : IUserService
     {
         ArgumentNullException.ThrowIfNull(command);
         var user = await _userProvider.FindAsync(command.Login, cancellationToken).ConfigureAwait(false);
-        if (user is not null)
+        if (user is null)
             throw new ExistIsEntityException("Такого пользователя не существует.");
         if(user.Phone != command.Phone)
             throw new ArgumentException("Введён неправильный номер телефона.");

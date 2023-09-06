@@ -9,6 +9,6 @@ public interface ISprintService
     Task<Sprint?> GetAsync(Guid id, CancellationToken cancellationToken);
     Task<List<Sprint>> GetAllAsync(Guid idProject, CancellationToken cancellationToken);
     Task CreateAsync(SprintRequest sprint, CancellationToken cancellationToken);
-    Task UpdateAsync(SprintRequest sprint, CancellationToken cancellationToken);
-    Task AttachFileAsync(Guid Id, List<FileRequest> files, CancellationToken cancellationToken);
+    Task UpdateAsync(SprintUpdateRequest sprint, CancellationToken cancellationToken);
+    Task AttachFilesAsync(Guid Id, List<FileRequest> files, CancellationToken cancellationToken);
 }

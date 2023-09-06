@@ -40,10 +40,10 @@ public class ProjectService : IProjectService
         return await _projectProvider.GetAllAsync(cancellationToken);
     }
 
-    public async Task UpdateAsync(ProjectRequest project, CancellationToken cancellationToken)
+    public async Task UpdateAsync(ProjectUpdateRequest project, CancellationToken cancellationToken)
     {
         ArgumentNullException.ThrowIfNull(project);
-        var projectDb = await _projectProvider.FindAsync(project.Name, cancellationToken);
+        var projectDb = await _projectProvider.GetAsync(project.Id, cancellationToken);
         if (projectDb == null)
             throw new NotExistException("Такого проекта не существует");
         projectDb.Name = project.Name;

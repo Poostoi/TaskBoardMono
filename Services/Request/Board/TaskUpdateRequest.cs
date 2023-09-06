@@ -1,7 +1,8 @@
 ﻿namespace Services.Request.Board;
 
-public class TaskRequest
+public class TaskUpdateRequest
 {
+    public Guid Id { get; set; }
     public Guid SprintId { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
