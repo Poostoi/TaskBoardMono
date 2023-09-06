@@ -30,7 +30,7 @@ public class TokenProvider: ITokenProvider
             {
                 new Claim(ClaimTypes.Sid, Convert.ToString(user.Id)),
                 new Claim(ClaimsIdentity.DefaultNameClaimType, user.Login),
-                new Claim("Role", user.Role.Name)
+                new Claim(ClaimsIdentity.DefaultRoleClaimType, user.Role.Name)
             }),
             Expires = null,
             SigningCredentials =
