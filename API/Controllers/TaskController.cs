@@ -29,7 +29,7 @@ public class TaskController: ApiBaseController
 
     [Authorize(Roles = "Администратор, Менеджер")]
     [HttpPut(Name = "UpdateTask")]
-    public async Task<IActionResult> UpdateAsync(TaskRequest task)
+    public async Task<IActionResult> UpdateAsync(TaskUpdateRequest task)
     {
         ArgumentNullException.ThrowIfNull(task);
         await _taskService.UpdateAsync(task, new CancellationToken());
@@ -56,5 +56,14 @@ public class TaskController: ApiBaseController
             throw new ArgumentException("Пользователь не добавлен в проект.");
         var task = await _taskService.GetAsync(id, new CancellationToken());
         return task;
+    }
+    [Authorize(Roles = "Администратор, Менеджер")]
+    [HttpPut("AttachFile")]
+    public async Task<IActionResult> AttachFiles(Guid id,  List<FileRequest> files, CancellationToken cancellationToken)
+    {
+        if (files.Count == 0)
+            throw new ArgumentException("Не прикреплено ни одного фаила.");
+        await _taskService.AttachFilesAsync(id,files, cancellationToken).ConfigureAwait(false);
+        return Ok();
     }
 }

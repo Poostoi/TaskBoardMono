@@ -30,7 +30,7 @@ public class SprintController : ApiBaseController
 
     [Authorize(Roles = "Администратор, Менеджер")]
     [HttpPut(Name = "UpdateSprint")]
-    public async Task<IActionResult> UpdateAsync(SprintRequest sprint)
+    public async Task<IActionResult> UpdateAsync(SprintUpdateRequest sprint)
     {
         ArgumentNullException.ThrowIfNull(sprint);
         await _sprintService.UpdateAsync(sprint, new CancellationToken());
@@ -57,5 +57,14 @@ public class SprintController : ApiBaseController
             throw new ArgumentException("Пользователь не добавлен в проект.");
         var sprint = await _sprintService.GetAsync(id, new CancellationToken());
         return sprint;
+    }
+    [Authorize(Roles = "Администратор, Менеджер")]
+    [HttpPut("AttachFile")]
+    public async Task<IActionResult> AttachFiles(Guid id,  List<FileRequest> files, CancellationToken cancellationToken)
+    {
+        if (files.Count == 0)
+            throw new ArgumentException("Не прикреплено ни одного фаила.");
+        await _sprintService.AttachFilesAsync(id,files, cancellationToken).ConfigureAwait(false);
+        return Ok();
     }
 }

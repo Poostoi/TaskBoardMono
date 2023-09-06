@@ -26,7 +26,7 @@ public class ProjectController: ApiBaseController
     }
     [Authorize(Roles = "Администратор, Менеджер")]
     [HttpPut(Name = "UpdateProject")]
-    public async Task<IActionResult> UpdateAsync(ProjectRequest project)
+    public async Task<IActionResult> UpdateAsync(ProjectUpdateRequest project)
     {
         ArgumentNullException.ThrowIfNull(project);
         await _projectService.UpdateAsync(project, new CancellationToken());

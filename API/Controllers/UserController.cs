@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Services.Request.User;
 using Services.Services;
 using TaskBoard.Authorization.API.Controllers;
@@ -35,12 +36,28 @@ public class UserController : ApiBaseController
         var token = await _userService.LoginAsync(command, cancellationToken).ConfigureAwait(false);
         return Ok(token);
     }
-    [HttpPost("RecoverPassword")]
+    [HttpPut("RecoverPassword")]
     public async Task<IActionResult> RecoverPassword([FromBody] RecoverPasswordCommand command, CancellationToken cancellationToken)
     {
         ArgumentNullException.ThrowIfNull(command);
 
         await _userService.RecoverPasswordAsync(command, cancellationToken).ConfigureAwait(false);
+        return Ok();
+    }
+    [Authorize(Roles = "Администратор, Менеджер")]
+    [HttpPut("AttachProject")]
+    public async Task<IActionResult> AttachProject(string login, Guid projectId, CancellationToken cancellationToken)
+    {
+
+        await _userService.AttachProjectAsync(login,projectId, cancellationToken).ConfigureAwait(false);
+        return Ok();
+    }
+    [Authorize(Roles = "Администратор, Менеджер")]
+    [HttpPut("AttachTask")]
+    public async Task<IActionResult> AttachTask(string login, Guid taskId, CancellationToken cancellationToken)
+    {
+
+        await _userService.AttachTaskAsync(login,taskId, cancellationToken).ConfigureAwait(false);
         return Ok();
     }
 
