@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Models.Board;
 using Models.UserActivity;
+using File = Models.Board.File;
 using Task = Models.Board.Task;
 
 namespace Providers;
@@ -12,6 +13,7 @@ public class ApplicationContext:DbContext
     public DbSet<Project> Projects { get; set; }
     public DbSet<Sprint> Sprints { get; set; }
     public DbSet<Task> Tasks { get; set; }
+    public DbSet<File> Files { get; set; }
     
     
     public ApplicationContext()

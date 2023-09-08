@@ -2,8 +2,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Models.Board;
 using Services.Request.Board;
+using Services.Response;
 using Services.Services;
 using TaskBoard.Authorization.API.Controllers;
+using File = Models.Board.File;
 
 namespace API.Controllers;
 
@@ -38,19 +40,19 @@ public class SprintController : ApiBaseController
     }
 
     [Authorize]
-    [HttpGet("GetAllProduct")]
-    public async Task<List<Sprint>> GetAll(string login, Guid idProject)
+    [HttpGet("GetAllSprint")]
+    public async Task<List<SprintResponse>> GetAll(string login, Guid idProject)
     {
         var user = await _userService.FindAsync(login, new CancellationToken());
         if (user.Role.Name == "Пользователь" && user.Project.Id != idProject)
             throw new ArgumentException("Пользователь не добавлен в проект.");
-        var listProject = await _sprintService.GetAllAsync(idProject, new CancellationToken());
-        return listProject;
+        
+        return await _sprintService.GetAllAsync(idProject, new CancellationToken());
     }
 
     [Authorize]
     [HttpGet("{id}")]
-    public async Task<Sprint> GetById(Guid id, string login, Guid idProject)
+    public async Task<SprintResponse> GetById(Guid id, string login, Guid idProject)
     {
         var user = await _userService.FindAsync(login, new CancellationToken());
         if (user.Role.Name == "Пользователь" && user.Project.Id != idProject)
@@ -59,12 +61,14 @@ public class SprintController : ApiBaseController
         return sprint;
     }
     [Authorize(Roles = "Администратор, Менеджер")]
-    [HttpPut("AttachFile")]
-    public async Task<IActionResult> AttachFiles(Guid id,  List<FileRequest> files, CancellationToken cancellationToken)
+    [HttpPut("{id}")]
+    public async Task<IActionResult> AttachFiles(Guid id,  List<IFormFile> files, CancellationToken cancellationToken)
     {
         if (files.Count == 0)
             throw new ArgumentException("Не прикреплено ни одного фаила.");
+        
         await _sprintService.AttachFilesAsync(id,files, cancellationToken).ConfigureAwait(false);
         return Ok();
     }
+    
 }

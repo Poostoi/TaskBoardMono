@@ -1,4 +1,6 @@
-﻿namespace Services.Request.Board;
+﻿using Microsoft.AspNetCore.Http;
+
+namespace Services.Request.Board;
 
 public class TaskUpdateRequest
 {
@@ -8,5 +10,5 @@ public class TaskUpdateRequest
     public string Description { get; set; }
     public string Status { get; set; }
     public string Comment { get; set; }
-    public List<FileRequest> Files { get; set; }
+    public List<IFormFile> Files { get; set; }
 }

@@ -1,7 +1,9 @@
-﻿using Models.Board;
+﻿using Microsoft.AspNetCore.Http;
+using Models.Board;
 using Services.Exception;
 using Services.Providers;
 using Services.Request.Board;
+using Services.Response;
 using Services.Services;
 using Task = System.Threading.Tasks.Task;
 
@@ -18,12 +20,12 @@ public class TaskService: ITaskService
     private readonly ITaskProvider _taskProvider;
     private readonly ISprintProvider _sprintProvider;
 
-    public async Task<Models.Board.Task?> GetAsync(Guid id, CancellationToken cancellationToken)
+    public async Task<TaskResponse?> GetAsync(Guid id, CancellationToken cancellationToken)
     {
         var task = await _taskProvider.GetAsync(id, cancellationToken);
         if (task == null)
             throw new NotExistException("Такой задачи не существует");
-        return task;
+        return ConvertInTaskResponse(task);
     }
 
     public async Task CreateAsync(TaskRequest task, CancellationToken cancellationToken)
@@ -46,17 +48,23 @@ public class TaskService: ITaskService
             task.Comment,
             new List<Models.Board.File>());
         
-        taskDb.Files.AddRange(ConvertImageInArrayByte(task.Files, taskDb));
+        taskDb.Files.AddRange(ConvertFileInArrayByte(task.Files, taskDb));
         await _taskProvider.CreateAsync(taskDb, cancellationToken);
     }
 
 
-    public async Task<List<Models.Board.Task>> GetAllAsync(Guid idSprint, CancellationToken cancellationToken)
+    public async Task<List<TaskResponse>> GetAllAsync(Guid idSprint, CancellationToken cancellationToken)
     {
         var sprintDb = await _sprintProvider.GetAsync(idSprint, cancellationToken).ConfigureAwait(false);
         if (sprintDb == null)
             throw new NotExistException("Такого спринта не существует");
-        return await _taskProvider.GetAllAsync(idSprint,cancellationToken);
+        var taskDbList = await _taskProvider.GetAllAsync(idSprint, cancellationToken);
+        var taskResponseList = new List<TaskResponse>();
+        foreach (var taskDb in taskDbList)
+        {
+            taskResponseList.Add(ConvertInTaskResponse(taskDb));
+        }
+        return taskResponseList;
     }
 
     public async Task UpdateAsync(TaskUpdateRequest task, CancellationToken cancellationToken)
@@ -74,36 +82,73 @@ public class TaskService: ITaskService
         taskDb.Status = (StatusEnum)Enum.Parse(typeof(StatusEnum),
             task.Status, true);
         taskDb.DateUpdate = DateTime.Now;
-        taskDb.Files.AddRange(ConvertImageInArrayByte(task.Files, taskDb));
+        taskDb.Comment = task.Comment;
+        taskDb.Files.AddRange(ConvertFileInArrayByte(task.Files, taskDb));
         await _taskProvider.UpdateAsync(taskDb, cancellationToken);
     }
-    public async Task AttachFilesAsync(Guid id,  List<FileRequest> files, CancellationToken cancellationToken)
+    public async Task AttachFilesAsync(Guid id,  List<IFormFile> files, CancellationToken cancellationToken)
     {
         var taskDb = await _taskProvider.GetAsync(id, cancellationToken);
         if (taskDb == null)
             throw new NotExistException("Такой задачи не существует");
         
         taskDb.DateUpdate = DateTime.Now;
-        taskDb.Files.AddRange(ConvertImageInArrayByte(files, taskDb));
+        taskDb.Files.AddRange(ConvertFileInArrayByte(files, taskDb));
         await _taskProvider.UpdateAsync(taskDb, cancellationToken);
     }
 
 
-    private List<Models.Board.File> ConvertImageInArrayByte(List<FileRequest> filesRequests,
+    private List<Models.Board.File> ConvertFileInArrayByte(List<IFormFile> filesRequests,
         Models.Board.Task task)
     {
         var files = new List<Models.Board.File>();
-        foreach (var file in filesRequests)
+        foreach (var fileRequest in filesRequests)
         {
-            var fileCurrent = new Models.Board.File(file.Name, null, null,task);
-            using (var binaryReader = new BinaryReader(file.DataImage.OpenReadStream()))
+            var fileCurrent = new Models.Board.File(fileRequest.Name, null, null,task);
+            using (var binaryReader = new BinaryReader(fileRequest.OpenReadStream()))
             {
-                fileCurrent.DataImage = binaryReader.ReadBytes((int)file.DataImage.Length);
+                fileCurrent.DataImage = binaryReader.ReadBytes((int)fileRequest.Length);
             }
 
             files.Add(fileCurrent);
         }
 
         return files;
+    }
+
+    private TaskResponse ConvertInTaskResponse(Models.Board.Task task)
+    {
+        return new TaskResponse()
+        {
+            SprintId = task.Sprint.Id,
+            Name = task.Name,
+            Description = task.Description,
+            Status = task.Status,
+            Comment = task.Comment,
+            Files = ConvertInFileResponses(task.Files)
+        };
+    }
+
+    private List<FileResponse> ConvertInFileResponses(List<Models.Board.File> files)
+    {
+        var filesResponse = new List<FileResponse>();
+        foreach (var file in files)
+        {
+            var fileCurrent = new FileResponse()
+            {
+                Name = file.Name,
+                DataImage = file.DataImage,
+                SprintId = null,
+                TaskId = null
+            };
+            if (file.Task != null)
+                fileCurrent.TaskId = file.Task.Id;
+            if (file.Sprint != null)
+                fileCurrent.SprintId = file.Sprint.Id;
+
+            filesResponse.Add(fileCurrent);
+        }
+
+        return filesResponse;
     }
 }

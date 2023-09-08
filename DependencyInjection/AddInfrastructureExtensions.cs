@@ -21,6 +21,7 @@ public static partial class ServiceCollectionExtensions
         service.AddScoped<IProjectProvider, ProjectProvider>();
         service.AddScoped<ISprintProvider, SprintProvider>();
         service.AddScoped<ITaskProvider, TaskProvider>();
+        service.AddScoped<IFileProvider, FileProvider>();
 
 
         return service;
