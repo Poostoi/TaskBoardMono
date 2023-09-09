@@ -11,14 +11,16 @@ namespace Services;
 
 public class TaskService: ITaskService
 {
-    public TaskService(ITaskProvider taskProvider, ISprintProvider sprintProvider)
+    public TaskService(ITaskProvider taskProvider, ISprintProvider sprintProvider, IFileProvider fileProvider)
     {
         _taskProvider = taskProvider;
         _sprintProvider = sprintProvider;
+        _fileProvider = fileProvider;
     }
 
     private readonly ITaskProvider _taskProvider;
     private readonly ISprintProvider _sprintProvider;
+    private readonly IFileProvider _fileProvider;
 
     public async Task<TaskResponse?> GetAsync(Guid id, CancellationToken cancellationToken)
     {
@@ -93,8 +95,9 @@ public class TaskService: ITaskService
             throw new NotExistException("Такой задачи не существует");
         
         taskDb.DateUpdate = DateTime.Now;
-        taskDb.Files.AddRange(ConvertFileInArrayByte(files, taskDb));
+        var filesDb = ConvertFileInArrayByte(files, taskDb);
         await _taskProvider.UpdateAsync(taskDb, cancellationToken);
+        await _fileProvider.CreateAsync(filesDb, cancellationToken);
     }
 
 
@@ -104,7 +107,7 @@ public class TaskService: ITaskService
         var files = new List<Models.Board.File>();
         foreach (var fileRequest in filesRequests)
         {
-            var fileCurrent = new Models.Board.File(fileRequest.Name, null, null,task);
+            var fileCurrent = new Models.Board.File(fileRequest.FileName, null, null,task);
             using (var binaryReader = new BinaryReader(fileRequest.OpenReadStream()))
             {
                 fileCurrent.DataImage = binaryReader.ReadBytes((int)fileRequest.Length);
@@ -120,6 +123,7 @@ public class TaskService: ITaskService
     {
         return new TaskResponse()
         {
+            Id = task.Id,
             SprintId = task.Sprint.Id,
             Name = task.Name,
             Description = task.Description,

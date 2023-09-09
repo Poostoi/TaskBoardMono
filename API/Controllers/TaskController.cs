@@ -38,7 +38,7 @@ public class TaskController: ApiBaseController
     }
 
     [Authorize]
-    [HttpGet("GetAllProduct")]
+    [HttpGet("GetAllTask")]
     public async Task<List<TaskResponse>> GetAllAsync(string login, Guid idProject, Guid idSprint)
     {
         var user = await _userService.FindAsync(login, new CancellationToken());

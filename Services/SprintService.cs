@@ -126,6 +126,7 @@ public class SprintService : ISprintService
 
     private SprintResponse ConvertInSprintResponse(Sprint sprint) => new SprintResponse()
     {
+        Id = sprint.Id,
         ProjectId = sprint.Project.Id,
         Name = sprint.Name,
         Description = sprint.Description,

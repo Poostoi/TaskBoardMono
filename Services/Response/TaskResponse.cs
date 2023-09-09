@@ -4,6 +4,8 @@ namespace Services.Response;
 
 public class TaskResponse
 {
+    
+    public Guid Id { get; set; }
     public Guid SprintId { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }

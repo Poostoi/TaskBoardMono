@@ -4,6 +4,7 @@ namespace Services.Response;
 
 public class SprintResponse
 {
+    public Guid Id { get; set; }
     public Guid ProjectId { get; set; }
     public string Name { get; set; }
     public string Description { get; set; }
